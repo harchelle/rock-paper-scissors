@@ -1,78 +1,24 @@
-<script>
-  //function for generating rock paper or scissors for computer.
-  function computerPlay(){
-    let randomNumberGenerator = (number) =>  {return Math.floor(Math.random()*number)};
-    randomNumber = randomNumberGenerator(3)
-    switch(randomNumber){
-      //computer will be rock.
-      case 0: 
-        return "Rock"
-      //computer will be paper.
-      case 1: 
-        return "Paper"
-      //computer will be scissors.
-      case 2: 
-        return "Scissors"
-
-    }
-  }
-  //function for determining who won, the player or the computer.
-  function playRound(playerSelection,computerSelection){
-    playerSelection = playerSelection.toUpperCase(); //changing player's selection to uppercase to prevent errors.
-    computerSelection = computerSelection.toUpperCase(); //changing computer's selection to uppercase to prevent errors.
-      
-    switch (playerSelection){
-      case "ROCK": //Player is ROCK
-        if (computerSelection == "ROCK"){
-          return "It's a draw! Now the tiebreaker. Rock and Rock." //Computer is also ROCK.
-        }else if (computerSelection == "PAPER"){
-          return "You lose! Paper beats Rock. Try again" //Computer is PAPER.
-        }else if (computerSelection == "SCISSORS"){
-          return "You win! Rock beats Paper." //Computer is SCISSORS.
-        }
-        else {
-          return "Error occured. Please input either Rock Paper or Scissors." //to prevent invalid input.
-        }
-
-      case "PAPER": //Player is PAPER.
-        if (computerSelection == "ROCK"){
-          return "You win! Paper beats Rock." //Player is PAPER and computer is ROCK.
-        }
-        else if (computerSelection == "PAPER"){
-          return "It's a draw! Now the tiebreaker. Paper and Paper." //Computer is also PAPER.
-        }
-        else if(computerSelection == "SCISSORS") {
-          return "You lose! Scissors beats Paper." //Computer is SCISSORS.
-        }
-        else {
-          return "Error occured. Please input either Rock Paper or Scissors."
-        }
-
-      case "SCISSORS": //Player is SCISSORS.
-        if (computerSelection == "ROCK"){
-          return "You lose! Rock beats Scissors." //Computer is ROCK
-        }
-        else if (computerSelection == "PAPER"){
-          return "You win! Scissors beats Paper." //Computer is PAPER
-        }
-        else if(computerSelection == "SCISSORS") {
-          return "It's a draw! Now the tiebreaker. Scissors and Scissors." //Computer is also SCISSORS.
-        }
-        else {
-          return "Error occured. Please input either Rock Paper or Scissors."
-        }
-      }
-    }
-    //Call this function in the console to play for 5 rounds.
-    function game(){
-      let rounds = 5;
-      let i = 1;
-      while(i <= rounds){
-        let playerSelection = prompt("Rock, Paper or Scissors?");
-        let computerSelection = computerPlay();
-        console.log(playRound(playerSelection,computerSelection));
-        
-        i++;
-      }
-    }
-</script>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <div class="option-container">
+      <button id="rock">Rock</button>
+      <button id="paper">Paper</button>
+      <button id="scissors">Scissors</button>
+    </div>
+    <div class="container">
+      <div class="result-board">
+        <!-- The results will be addded here. -->
+      </div>
+      <div class="score-board">
+        <!-- The scores will be added here. -->
+        <h2>Score</h2>
+      </div>
+    </div>
+    
+    <script src="script.js"></script>
+  </body>
+</html>
